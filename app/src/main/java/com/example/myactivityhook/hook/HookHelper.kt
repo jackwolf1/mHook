@@ -32,8 +32,39 @@ object HookHelper {
 
     class ProxyInstrumentation(private val mBase: Instrumentation) : Instrumentation() {
 
+//        fun execStartActivity(
+//            who: Context, contextThread: IBinder, token: IBinder, target: Activity,
+//            intent: Intent, requestCode: Int, options: Bundle?
+//        ): ActivityResult? {
+//            Log.e(
+//                TAG, "执行了startActivity, 参数如下: " + "who = [" + who + "], " +
+//                        "contextThread = [" + contextThread + "], token = [" + token + "], " +
+//                        "target = [" + target + "], intent = [" + intent +
+//                        "], requestCode = [" + requestCode + "], options = [" + options + "]"
+//            )
+//            val instrumentationClass: Class<*> = Instrumentation::class.java
+//            val execStartActivity = instrumentationClass.getDeclaredMethod(
+//                "execStartActivity",
+//                Context::class.java,
+//                IBinder::class.java,
+//                IBinder::class.java,
+//                Activity::class.java,
+//                Intent::class.java,
+//                Int::class.javaPrimitiveType,
+//                Bundle::class.java
+//            )
+//            execStartActivity.isAccessible = true
+//
+//
+//
+//            return execStartActivity.invoke(
+//                mBase, who,
+//                contextThread, token, target, intent, requestCode, options
+//            ) as ActivityResult?
+//        }
+
         fun execStartActivity(
-            who: Context, contextThread: IBinder, token: IBinder, target: Activity,
+            who: Context, contextThread: IBinder, token: IBinder?, target: Activity?,
             intent: Intent, requestCode: Int, options: Bundle?
         ): ActivityResult? {
             Log.e(

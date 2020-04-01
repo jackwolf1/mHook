@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             HookHelper.hookActivityThreadInstrumentation()
             val intent = Intent(this, StubActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivity(intent)
+            applicationContext.startActivity(intent)
         }
         button4.setOnClickListener {
             HookHelper.hookAMS()
